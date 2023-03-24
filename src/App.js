@@ -3,6 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <input></input>
       <List></List>
     </div>
   );
@@ -25,7 +26,7 @@ const list = [
  
 const List = () => 
   list.map(item => (
-    <div class="item-list">
+    <div key={item.objectID} className="item-list">
       <span>{item.description}</span>
     </div>
   ))

@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <List></List>
     </div>
   );
 }
+
+const list = [
+  {
+    description: "Clean kitchen",
+    objectID: 0
+  },
+  {
+    description: "Organize email inbox",
+    objectID: 1
+  },
+  {
+    description: "Do taxes",
+    objectID: 2
+  },
+]
+ 
+const List = () => 
+  list.map(item => (
+    <div class="item-list">
+      <span>{item.description}</span>
+    </div>
+  ))
+
 
 export default App;

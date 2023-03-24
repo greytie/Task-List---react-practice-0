@@ -3,11 +3,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <div className="add-item-box">
-        <input id="add-item"></input>
-        <button>add item</button>
-      </div>
-      
+      <AddItemBox></AddItemBox>
       <List></List>
     </div>
   );
@@ -35,5 +31,11 @@ const List = () =>
     </div>
   ))
 
+const AddItemBox = () => (
+  <div className="add-item-box">
+    <input id="add-item"></input>
+    <button>add item</button>
+  </div>
+)
 
 export default App;

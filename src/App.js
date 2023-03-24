@@ -3,7 +3,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <input></input>
+      <div className="add-item-box">
+        <input id="add-item"></input>
+        <button>add item</button>
+      </div>
+      
       <List></List>
     </div>
   );

@@ -1,13 +1,13 @@
 import './App.css';
 
-function App() {
-  return (
+const App = () => 
+  (
     <div className="App">
       <AddItemBox></AddItemBox>
       <List></List>
     </div>
   );
-}
+
 
 const list = [
   {

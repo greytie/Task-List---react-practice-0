@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 
 const App = () => {
-  const list = [
+  const initialList = [
     {
       description: "Clean kitchen",
       objectID: 0
@@ -17,7 +17,7 @@ const App = () => {
     },
   ];
 
-  const [itemList, setItemList] = React.useState(list);
+  const [itemList, setItemList] = React.useState(initialList);
 
   const handleNewItem = event => {
     console.log(newItemInput)

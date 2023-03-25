@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 
 const App = () => {
   const list = [
@@ -16,10 +17,12 @@ const App = () => {
     },
   ];
 
+  const [itemList, setItemList] = React.useState(list);
+
   return (
     <div className="App">
       <AddItemBox></AddItemBox>
-      <List list={list}></List>
+      <List list={itemList}></List>
     </div>
   );
 }

@@ -19,9 +19,23 @@ const App = () => {
 
   const [itemList, setItemList] = React.useState(list);
 
+  const handleNewItem = event => {
+    console.log(newItemInput)
+    setItemList([...itemList, {
+      description: newItemInput,
+      objectID: itemList.length
+    }]);
+  }
+
+  const [newItemInput, setNewItemInput] = React.useState('');
+
+  const handleNewItemInputChange = event => {
+    setNewItemInput(event.target.value)
+  }
+
   return (
     <div className="App">
-      <AddItemBox></AddItemBox>
+      <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange}></AddItemBox>
       <List list={itemList}></List>
     </div>
   );
@@ -35,10 +49,10 @@ const List = props =>
     </div>
   ))
 
-const AddItemBox = () => (
+const AddItemBox = props => (
   <div className="add-item-box">
-    <input id="add-item"></input>
-    <button>add item</button>
+    <input id="add-item" onChange={props.handleNewItemInputChange} />
+    <button onClick={props.handleNewItem}>add item</button>
   </div>
 )
 

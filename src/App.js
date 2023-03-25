@@ -1,31 +1,32 @@
 import './App.css';
 
-const App = () => 
-  (
+const App = () => {
+  const list = [
+    {
+      description: "Clean kitchen",
+      objectID: 0
+    },
+    {
+      description: "Organize email inbox",
+      objectID: 1
+    },
+    {
+      description: "Do taxes",
+      objectID: 2
+    },
+  ];
+
+  return (
     <div className="App">
       <AddItemBox></AddItemBox>
-      <List></List>
+      <List list={list}></List>
     </div>
   );
-
-
-const list = [
-  {
-    description: "Clean kitchen",
-    objectID: 0
-  },
-  {
-    description: "Organize email inbox",
-    objectID: 1
-  },
-  {
-    description: "Do taxes",
-    objectID: 2
-  },
-]
+}
+  
  
-const List = () => 
-  list.map(item => (
+const List = props => 
+  props.list.map(item => (
     <div key={item.objectID} className="item-list">
       <span>{item.description}</span>
     </div>

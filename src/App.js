@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import List from './list/List';
+import List from './List/List';
+import TitleBox from './TitleBox/TitleBox'
 
 const App = () => {
   const [itemList, setItemList] = React.useState([
@@ -46,11 +47,6 @@ const App = () => {
   );
 }
 
-const TitleBox = () => (
-  <div className="title-box">
-    <h1>Task List</h1>
-  </div>
-)
 
 const AddItemBox = props => (
   <div className="add-item-box">

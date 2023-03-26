@@ -1,13 +1,13 @@
 import './List.css';
 
-const List = props => {
+const List = ({list}) => {
     return (
       <div className="list-container">
-        {(props.list && props.list.length > 0)
+        {(list && list.length > 0)
           ?
-           props.list.map(item => (
-            <div key={item.objectID} className="item">
-              <span className="item-name">{item.name}</span>
+           list.map(({objectID, name}) => (
+            <div key={objectID} className="item">
+              <span className="item-name">{name}</span>
               <span className="item-action item-cross">cross off</span>
               <span className="item-action item-delete">delete</span>
             </div>

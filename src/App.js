@@ -38,7 +38,7 @@ const App = () => {
 }
  
 const TitleBox = () => (
-  <div>
+  <div className="title-box">
     <h1>Task List</h1>
   </div>
 )

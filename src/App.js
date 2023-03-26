@@ -3,22 +3,7 @@ import '@picocss/pico';
 import React from 'react';
 
 const App = () => {
-  const initialList = [
-    {
-      description: "Clean kitchen",
-      objectID: 0
-    },
-    {
-      description: "Organize email inbox",
-      objectID: 1
-    },
-    {
-      description: "Do taxes",
-      objectID: 2
-    },
-  ];
-
-  const [itemList, setItemList] = React.useState(initialList);
+  const [itemList, setItemList] = React.useState([]);
 
   const handleNewItem = () => {
     if (!newItemInput || newItemInput.trim().length === 0) {
@@ -61,12 +46,15 @@ const TitleBox = () => (
 const List = props => {
   return (
     <div className="list-container">
-      {
+      {(props.list && props.list.length > 0)
+        ?
          props.list.map(item => (
           <div key={item.objectID} className="item-list">
             <span>{item.description}</span>
           </div>
         ))
+        :
+        <div className="no-items">No Items</div>
       }
     </div>
   )

@@ -53,6 +53,10 @@
   font-size: calc(10px + 2vmin);
 }
 
+.no-items {
+  color: grey;
+  font-size: calc(10px + 2vmin);
+}
 
 .add-item-box {
   display: flex;

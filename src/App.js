@@ -37,19 +37,30 @@ const App = () => {
   }
 
   return (
-    <div className="App container">
-      <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange} input={newItemInput}></AddItemBox>
-      <List list={itemList}></List>
-    </div>
+    <main className="container">
+      <div className="App">
+        <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange} input={newItemInput}></AddItemBox>
+        <List list={itemList}></List>
+      </div>
+    </main>
+    
   );
 }
  
-const List = props => 
-  props.list.map(item => (
-    <div key={item.objectID} className="item-list">
-      <span>{item.description}</span>
+const List = props => {
+  return (
+    <div className="list-container">
+      {
+         props.list.map(item => (
+          <div key={item.objectID} className="item-list">
+            <span>{item.description}</span>
+          </div>
+        ))
+      }
     </div>
-  ))
+  )
+}
+ 
 
 const AddItemBox = props => (
   <div className="add-item-box">

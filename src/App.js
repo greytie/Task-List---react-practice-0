@@ -5,7 +5,7 @@ import React from 'react';
 const App = () => {
   const [itemList, setItemList] = React.useState([
     {
-      description: "Test Item",
+      name: "Test Item",
       objectID: 0
     }
   ]);
@@ -19,7 +19,7 @@ const App = () => {
 
     console.log(newItemInput)
     setItemList([...itemList, {
-      description: newItemInput,
+      name: newItemInput,
       objectID: itemList.length
     }]);
     setNewItemInput('')
@@ -56,7 +56,7 @@ const List = props => {
         ?
          props.list.map(item => (
           <div key={item.objectID} className="item">
-            <span className="item-description">{item.description}</span>
+            <span className="item-name">{item.name}</span>
             <span className="item-action item-cross">cross off</span>
             <span className="item-action item-delete">delete</span>
           </div>

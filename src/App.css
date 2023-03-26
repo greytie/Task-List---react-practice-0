@@ -47,7 +47,7 @@
   align-items: center;
 }
 
-.item-description {
+.item-name {
   align-self: flex-start;
   flex: 4;
 }

@@ -20,13 +20,17 @@ const App = () => {
 
   const [itemList, setItemList] = React.useState(initialList);
 
-  const handleNewItem = event => {
+  const handleNewItem = () => {
+    if (!newItemInput || newItemInput.trim().length === 0) {
+      console.log("No text in input, can't add task.")
+      return;
+    }     
+
     console.log(newItemInput)
     setItemList([...itemList, {
       description: newItemInput,
       objectID: itemList.length
     }]);
-
     setNewItemInput('')
   }
 
@@ -39,6 +43,7 @@ const App = () => {
   return (
     <main className="container">
       <div className="App">
+        <TitleBox></TitleBox>
         <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange} input={newItemInput}></AddItemBox>
         <List list={itemList}></List>
       </div>
@@ -47,6 +52,12 @@ const App = () => {
   );
 }
  
+const TitleBox = () => (
+  <div>
+    <h1>Task List</h1>
+  </div>
+)
+
 const List = props => {
   return (
     <div className="list-container">

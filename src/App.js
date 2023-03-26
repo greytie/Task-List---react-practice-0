@@ -1,4 +1,5 @@
 import './App.css';
+import '@picocss/pico';
 import React from 'react';
 
 const App = () => {
@@ -36,7 +37,7 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div className="App container">
       <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange} input={newItemInput}></AddItemBox>
       <List list={itemList}></List>
     </div>

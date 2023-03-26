@@ -3,7 +3,12 @@ import '@picocss/pico';
 import React from 'react';
 
 const App = () => {
-  const [itemList, setItemList] = React.useState([]);
+  const [itemList, setItemList] = React.useState([
+    {
+      description: "Test Item",
+      objectID: 0
+    }
+  ]);
 
   const handleNewItem = () => {
     if (!newItemInput || newItemInput.trim().length === 0) {
@@ -49,8 +54,9 @@ const List = props => {
       {(props.list && props.list.length > 0)
         ?
          props.list.map(item => (
-          <div key={item.objectID} className="item-list">
-            <span>{item.description}</span>
+          <div key={item.objectID} className="item">
+            <span className="item-description">{item.description}</span>
+            <span className="item-delete">delete</span>
           </div>
         ))
         :

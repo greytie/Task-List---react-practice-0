@@ -19,16 +19,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.App-header {
-  /* background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white; */
-}
 
 .App-link {
   color: #61dafb;
@@ -43,14 +33,29 @@
   }
 }
 
-
 .list-container {
   text-align: start;
+  display: flex;
+  flex-direction: column;
 }
 
-.item-list {
+.item {
+  min-width: 40vw;  
   color: white;
   font-size: calc(10px + 2vmin);
+  display: flex;
+}
+
+.item-description {
+  align-self: flex-start;
+  flex: 4;
+}
+
+.item-delete {
+  align-self: flex-end;
+  font-size: calc(10px + 1vmin);
+  color: #5c86a7;
+  flex: 1;
 }
 
 .no-items {

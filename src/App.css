@@ -40,10 +40,11 @@
 }
 
 .item {
-  min-width: 40vw;  
+  min-width: 50vw;  
   color: white;
   font-size: calc(10px + 2vmin);
   display: flex;
+  align-items: center;
 }
 
 .item-description {
@@ -51,11 +52,18 @@
   flex: 4;
 }
 
-.item-delete {
+.item-action {
   align-self: flex-end;
   font-size: calc(10px + 1vmin);
-  color: #5c86a7;
   flex: 1;
+}
+
+.item-cross {
+  color: #bfafb2
+}
+
+.item-delete {
+  color: #5c86a7;
 }
 
 .no-items {

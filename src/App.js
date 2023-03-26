@@ -56,7 +56,8 @@ const List = props => {
          props.list.map(item => (
           <div key={item.objectID} className="item">
             <span className="item-description">{item.description}</span>
-            <span className="item-delete">delete</span>
+            <span className="item-action item-cross">cross off</span>
+            <span className="item-action item-delete">delete</span>
           </div>
         ))
         :

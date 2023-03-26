@@ -10,7 +10,8 @@ const App = () => {
     }
   ]);
 
-  const handleNewItem = () => {
+  const handleNewItem = event => {
+    event.preventDefault();
     if (!newItemInput || newItemInput.trim().length === 0) {
       console.log("No text in input, can't add task.")
       return;
@@ -70,8 +71,12 @@ const List = props => {
 
 const AddItemBox = props => (
   <div className="add-item-box">
-    <input id="add-item" value={props.input} onChange={props.handleNewItemInputChange} />
-    <button onClick={props.handleNewItem}>add item</button>
+    <form onSubmit={props.handleNewItem}>
+      <div className="grid">
+        <input id="add-item" value={props.input} onChange={props.handleNewItemInputChange} />
+        <button onClick={props.handleNewItem}>add item</button>
+      </div>
+    </form>
   </div>
 )
 

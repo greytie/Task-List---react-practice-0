@@ -1,6 +1,6 @@
 import './App.css';
-import '@picocss/pico';
 import React from 'react';
+import List from './list/List';
 
 const App = () => {
   const [itemList, setItemList] = React.useState([
@@ -45,31 +45,12 @@ const App = () => {
     </main>
   );
 }
- 
+
 const TitleBox = () => (
   <div className="title-box">
     <h1>Task List</h1>
   </div>
 )
-
-const List = props => {
-  return (
-    <div className="list-container">
-      {(props.list && props.list.length > 0)
-        ?
-         props.list.map(item => (
-          <div key={item.objectID} className="item">
-            <span className="item-name">{item.name}</span>
-            <span className="item-action item-cross">cross off</span>
-            <span className="item-action item-delete">delete</span>
-          </div>
-        ))
-        :
-        <div className="no-items">No Items</div>
-      }
-    </div>
-  )
-} 
 
 const AddItemBox = props => (
   <div className="add-item-box">

@@ -15,14 +15,18 @@ const App = () => {
     if (!newItemInput || newItemInput.trim().length === 0) {
       console.log("No text in input, can't add task.")
       return;
-    }     
-
-    console.log(newItemInput)
-    setItemList([...itemList, {
+    }
+    
+    const newList = [...itemList, {
       name: newItemInput,
       objectID: itemList.length
-    }]);
-    setNewItemInput('')
+    }].map((item, index) => {
+      item.objectID = index;
+      return item;
+    });
+
+    setItemList(newList);
+    setNewItemInput('');
   }
 
   const [newItemInput, setNewItemInput] = React.useState('');
@@ -39,7 +43,6 @@ const App = () => {
         <List list={itemList}></List>
       </div>
     </main>
-    
   );
 }
  
@@ -66,8 +69,7 @@ const List = props => {
       }
     </div>
   )
-}
- 
+} 
 
 const AddItemBox = props => (
   <div className="add-item-box">

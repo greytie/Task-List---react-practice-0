@@ -72,9 +72,9 @@ const List = props => {
 const AddItemBox = props => (
   <div className="add-item-box">
     <form onSubmit={props.handleNewItem}>
-      <div className="grid">
+      <div className="add-item-grid">
         <input id="add-item" value={props.input} onChange={props.handleNewItemInputChange} />
-        <button onClick={props.handleNewItem}>add item</button>
+        <button type="submit">add item</button>
       </div>
     </form>
   </div>

@@ -74,6 +74,25 @@
 .add-item-box {
   display: flex;
   flex-direction: row;
+  min-width: 50vw;
+}
+
+.add-item-box > form {
+  width: 100%;
+}
+
+.add-item-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.add-item-grid > input {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.add-item-grid > button {
+  flex: 1;
 }
 
 .title-box {

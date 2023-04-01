@@ -1,37 +1,37 @@
 .item {
-  min-width: 50vw;  
-  color: white;
-  font-size: calc(10px + 2vmin);
-  display: flex;
-  align-items: center;
+	min-width: 50vw;
+	color: white;
+	font-size: calc(10px + 2vmin);
+	display: flex;
+	align-items: center;
 }
 
 .item-name {
-  align-self: flex-start;
-  flex: 4;
+	align-self: flex-start;
+	flex: 4;
 }
 
 .item-action {
-  align-self: flex-end;
-  font-size: calc(10px + 1vmin);
-  flex: 1;
+	align-self: flex-end;
+	font-size: calc(10px + 1vmin);
+	flex: 1;
 }
 
 .item-cross {
-  color: #bfafb2
+	color: #bfafb2;
 }
 
 .item-delete {
-  color: #5c86a7;
+	color: #5c86a7;
 }
 
 .no-items {
-  color: grey;
-  font-size: calc(10px + 2vmin);
+	color: grey;
+	font-size: calc(10px + 2vmin);
 }
 
 .list-container {
-  text-align: start;
-  display: flex;
-  flex-direction: column;
+	text-align: start;
+	display: flex;
+	flex-direction: column;
 }

@@ -1,56 +1,63 @@
-import './App.css';
-import React from 'react';
-import List from './List/List';
+import './App.css'
+import React from 'react'
+import List from './List/List'
 import TitleBox from './TitleBox/TitleBox'
-import AddItemBox from './AddItemBox/AddItemBox';
+import AddItemBox from './AddItemBox/AddItemBox'
 
 const App = () => {
-  const [itemList, setItemList] = React.useState([
-    {
-      name: "Test Item",
-      objectID: 0
-    }
-  ]);
+	const [itemList, setItemList] = React.useState([
+		{
+			name: 'Test Item',
+			objectID: 0,
+		},
+	])
 
-  const handleNewItem = event => {
-    event.preventDefault();
-    if (!newItemInput || newItemInput.trim().length === 0) {
-      console.log("No text in input, can't add task.")
-      return;
-    }
-    
-    const newList = [...itemList, {
-      name: newItemInput,
-      objectID: itemList.length
-    }].map((item, index) => {
-      item.objectID = index;
-      return item;
-    });
+	const handleNewItem = (event) => {
+		event.preventDefault()
+		if (!newItemInput || newItemInput.trim().length === 0) {
+			console.log("No text in input, can't add task.")
+			return
+		}
 
-    setItemList(newList);
-    setNewItemInput('');
-  }
+		const newList = [
+			...itemList,
+			{
+				name: newItemInput,
+				objectID: itemList.length,
+			},
+		].map((item, index) => {
+			item.objectID = index
+			return item
+		})
 
-  const handleItemDeletion = deletedItemID => {
-    const newList = itemList.filter(item => item.objectID !== deletedItemID)
-    setItemList(newList);
-  }
+		setItemList(newList)
+		setNewItemInput('')
+	}
 
-  const [newItemInput, setNewItemInput] = React.useState('');
+	const handleItemDeletion = (deletedItemID) => {
+		const newList = itemList.filter((item) => item.objectID !== deletedItemID)
+		setItemList(newList)
+	}
 
-  const handleNewItemInputChange = event => {
-    setNewItemInput(event.target.value)
-  }
+	const [newItemInput, setNewItemInput] = React.useState('')
 
-  return (
-    <main className="container">
-      <div className="App">
-        <TitleBox></TitleBox>
-        <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange} input={newItemInput}></AddItemBox>
-        <List list={itemList} handleItemDeletion={handleItemDeletion}></List>
-      </div>
-    </main>
-  );
+	const handleNewItemInputChange = (event) => {
+		setNewItemInput(event.target.value)
+	}
+
+	return (
+		<main className="container">
+			<div className="App">
+				<TitleBox></TitleBox>
+				<AddItemBox
+					handleNewItem={handleNewItem}
+					handleNewItemInputChange={handleNewItemInputChange}
+					input={newItemInput}
+				></AddItemBox>
+				<List list={itemList} handleItemDeletion={handleItemDeletion}></List>
+			</div>
+		</main>
+	)
 }
 
-export default App;
+export default App

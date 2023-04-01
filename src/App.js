@@ -30,6 +30,11 @@ const App = () => {
     setNewItemInput('');
   }
 
+  const handleItemDeletion = deletedItemID => {
+    const newList = itemList.filter(item => item.objectID !== deletedItemID)
+    setItemList(newList);
+  }
+
   const [newItemInput, setNewItemInput] = React.useState('');
 
   const handleNewItemInputChange = event => {
@@ -41,7 +46,7 @@ const App = () => {
       <div className="App">
         <TitleBox></TitleBox>
         <AddItemBox handleNewItem={handleNewItem} handleNewItemInputChange={handleNewItemInputChange} input={newItemInput}></AddItemBox>
-        <List list={itemList}></List>
+        <List list={itemList} handleItemDeletion={handleItemDeletion}></List>
       </div>
     </main>
   );

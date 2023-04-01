@@ -1,6 +1,6 @@
 import './List.css';
 
-const List = ({list}) => {
+const List = ({list, handleItemDeletion}) => {
     return (
       <div className="list-container">
         {(list && list.length > 0)
@@ -9,7 +9,7 @@ const List = ({list}) => {
             <div key={objectID} className="item">
               <span className="item-name">{name}</span>
               <span className="item-action item-cross">cross off</span>
-              <span className="item-action item-delete">delete</span>
+              <span className="item-action item-delete" onClick={() => handleItemDeletion(objectID)}>delete</span>
             </div>
           ))
           :

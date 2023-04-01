@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import List from './List/List';
 import TitleBox from './TitleBox/TitleBox'
+import AddItemBox from './AddItemBox/AddItemBox';
 
 const App = () => {
   const [itemList, setItemList] = React.useState([
@@ -51,17 +52,5 @@ const App = () => {
     </main>
   );
 }
-
-
-const AddItemBox = ({ handleNewItem, handleNewItemInputChange, input}) => (
-  <div className="add-item-box">
-    <form onSubmit={handleNewItem}>
-      <div className="add-item-grid">
-        <input id="add-item" value={input} onChange={handleNewItemInputChange} />
-        <button type="submit">add item</button>
-      </div>
-    </form>
-  </div>
-)
 
 export default App;

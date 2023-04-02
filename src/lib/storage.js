@@ -14,33 +14,8 @@ const readItemStorage = () => {
 	}
 }
 
-const createItem = (item) => {
-	const itemStorage = readItemStorage()
-	item.objectID = ++itemStorage.idIncrement
-	itemStorage.items.push(item)
+const updateItemStorage = (itemStorage) => {
 	localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
-    return itemStorage
 }
 
-const updateItem = (item) => {
-	const itemStorage = readItemStorage()
-	const index = itemStorage.items.findIndex((x) => x.objectID === item.objectID)
-
-	if (index >= 0) {
-		itemStorage.items[index] = item
-		localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
-	}
-
-    return itemStorage
-}
-
-const deleteItem = (objectID) => {
-	const itemStorage = readItemStorage()
-	itemStorage.items = itemStorage.items.filter(
-		(item) => item.objectID !== objectID
-	)
-	localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
-    return itemStorage;
-}
-
-export { readItemStorage, createItem, updateItem, deleteItem }
+export { readItemStorage, updateItemStorage }

@@ -3,11 +3,10 @@ import React from 'react'
 import List from './List/List'
 import TitleBox from './TitleBox/TitleBox'
 import AddItemBox from './AddItemBox/AddItemBox'
-import { createItem, readItemStorage, updateItem, deleteItem} from './lib/storage'
+import { readItemStorage, updateItemStorage } from './lib/storage'
 
 const App = () => {
-	const itemStorage = readItemStorage()
-	const [itemList, setItemList] = React.useState(itemStorage.items)
+	const [itemStore, setItemStore] = React.useState(readItemStorage())
 
 	const handleNewItem = (event) => {
 		event.preventDefault()
@@ -16,26 +15,44 @@ const App = () => {
 			return
 		}
 
-		const { items } = createItem({
+		itemStore.items.push({
 			name: newItemInput,
 			crossedOff: false,
+			objectID: ++itemStore.idIncrement,
 		})
 
-		setItemList(items)
+		setItemStore({
+			...itemStore,
+			items: [...itemStore.items],
+		})
+
 		setNewItemInput('')
 	}
 
 	const handleItemDeletion = (deleteItemID) => {
-		const { items } = deleteItem(deleteItemID)
-		setItemList(items)
+		itemStore.items = itemStore.items.filter(
+			(item) => item.objectID !== deleteItemID
+		)
+
+		setItemStore({
+			...itemStore,
+			items: [...itemStore.items],
+		})
 	}
 
 	const toggleCrossOff = (crossedItemID) => {
-		const updatedItem = itemList.find((item) => item.objectID === crossedItemID)
-		updatedItem.crossedOff = !updatedItem.crossedOff
-		const { items } = updateItem(updatedItem)
+		const updatedItem = itemStore.items.find(
+			(item) => item.objectID === crossedItemID
+		)
+		if (updatedItem == null) {
+			return
+		}
 
-		setItemList(items)
+		updatedItem.crossedOff = !updatedItem.crossedOff
+		setItemStore({
+			...itemStore,
+			items: [...itemStore.items],
+		})
 	}
 
 	const [newItemInput, setNewItemInput] = React.useState('')
@@ -43,6 +60,11 @@ const App = () => {
 	const handleNewItemInputChange = (event) => {
 		setNewItemInput(event.target.value)
 	}
+
+	React.useEffect(() => {
+		console.log(itemStore)
+		updateItemStorage(itemStore)
+	}, [itemStore])
 
 	return (
 		<main className="container">
@@ -54,7 +76,7 @@ const App = () => {
 					input={newItemInput}
 				></AddItemBox>
 				<List
-					list={itemList}
+					list={itemStore.items}
 					handleItemDeletion={handleItemDeletion}
 					toggleCrossOff={toggleCrossOff}
 				></List>

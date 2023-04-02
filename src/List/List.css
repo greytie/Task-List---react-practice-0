@@ -36,7 +36,7 @@
 	flex-direction: column;
 }
 
-.crossed-off{
-  text-decoration: line-through;
-  color: #bfafb2;
+.crossed-off {
+	text-decoration: line-through;
+	color: #bfafb2;
 }

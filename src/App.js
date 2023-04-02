@@ -3,15 +3,11 @@ import React from 'react'
 import List from './List/List'
 import TitleBox from './TitleBox/TitleBox'
 import AddItemBox from './AddItemBox/AddItemBox'
+import { readItemStorage, createItem } from './lib/storage'
 
 const App = () => {
-	const [itemList, setItemList] = React.useState([
-		{
-			name: 'Test Item',
-			objectID: 0,
-      crossedOff: false
-		},
-	])
+	const itemStorage = readItemStorage()
+	const [itemList, setItemList] = React.useState(itemStorage.items)
 
 	const handleNewItem = (event) => {
 		event.preventDefault()
@@ -20,19 +16,13 @@ const App = () => {
 			return
 		}
 
-		const newList = [
-			...itemList,
-			{
-				name: newItemInput,
-				objectID: itemList.length,
-        crossedOff: false
-			},
-		].map((item, index) => {
-			item.objectID = index
-			return item
+		createItem({
+			name: newItemInput,
+			crossedOff: false,
 		})
+		const { items } = readItemStorage()
 
-		setItemList(newList)
+		setItemList(items)
 		setNewItemInput('')
 	}
 
@@ -41,15 +31,15 @@ const App = () => {
 		setItemList(newList)
 	}
 
-  const toggleCrossOff = (crossedItemID) => {
-    const newList = itemList.map((item) => {
-      if (item.objectID === crossedItemID) {
-        item.crossedOff = !(item.crossedOff);
-      }
-      return item;
-    })
-    setItemList(newList)
-  }
+	const toggleCrossOff = (crossedItemID) => {
+		const newList = itemList.map((item) => {
+			if (item.objectID === crossedItemID) {
+				item.crossedOff = !item.crossedOff
+			}
+			return item
+		})
+		setItemList(newList)
+	}
 
 	const [newItemInput, setNewItemInput] = React.useState('')
 
@@ -66,11 +56,11 @@ const App = () => {
 					handleNewItemInputChange={handleNewItemInputChange}
 					input={newItemInput}
 				></AddItemBox>
-				<List 
-          list={itemList} 
-          handleItemDeletion={handleItemDeletion}
-          toggleCrossOff={toggleCrossOff}
-        ></List>
+				<List
+					list={itemList}
+					handleItemDeletion={handleItemDeletion}
+					toggleCrossOff={toggleCrossOff}
+				></List>
 			</div>
 		</main>
 	)

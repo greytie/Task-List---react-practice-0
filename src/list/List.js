@@ -6,9 +6,14 @@ const List = ({ list, handleItemDeletion, toggleCrossOff }) => {
 			{list && list.length > 0 ? (
 				list.map(({ objectID, name, crossedOff }) => (
 					<div key={objectID} className="item">
-						<span className={"item-name" + (crossedOff ? " crossed-off" : "")}>{name}</span>
-						<span className="item-action item-cross" onClick={() => toggleCrossOff(objectID)}>
-							{crossedOff ? "undo" : "cross off"}
+						<span className={'item-name' + (crossedOff ? ' crossed-off' : '')}>
+							{name}
+						</span>
+						<span
+							className="item-action item-cross"
+							onClick={() => toggleCrossOff(objectID)}
+						>
+							{crossedOff ? 'undo' : 'cross off'}
 						</span>
 						<span
 							className="item-action item-delete"

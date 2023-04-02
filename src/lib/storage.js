@@ -30,6 +30,8 @@ const updateItem = (item) => {
 		itemStorage.items[index] = item
 		localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
 	}
+
+    return itemStorage
 }
 
 const deleteItem = (objectID) => {

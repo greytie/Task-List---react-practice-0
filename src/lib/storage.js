@@ -19,6 +19,7 @@ const createItem = (item) => {
 	item.objectID = ++itemStorage.idIncrement
 	itemStorage.items.push(item)
 	localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
+    return itemStorage
 }
 
 const updateItem = (item) => {
@@ -37,6 +38,7 @@ const deleteItem = (objectID) => {
 		(item) => item.objectID !== objectID
 	)
 	localStorage.setItem('itemStorage', JSON.stringify(itemStorage))
+    return itemStorage;
 }
 
 export { readItemStorage, createItem, updateItem, deleteItem }

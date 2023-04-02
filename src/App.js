@@ -3,7 +3,7 @@ import React from 'react'
 import List from './List/List'
 import TitleBox from './TitleBox/TitleBox'
 import AddItemBox from './AddItemBox/AddItemBox'
-import { readItemStorage, createItem } from './lib/storage'
+import { readItemStorage, createItem, deleteItem } from './lib/storage'
 
 const App = () => {
 	const itemStorage = readItemStorage()
@@ -16,19 +16,18 @@ const App = () => {
 			return
 		}
 
-		createItem({
+		const { items } = createItem({
 			name: newItemInput,
 			crossedOff: false,
 		})
-		const { items } = readItemStorage()
 
 		setItemList(items)
 		setNewItemInput('')
 	}
 
-	const handleItemDeletion = (deletedItemID) => {
-		const newList = itemList.filter((item) => item.objectID !== deletedItemID)
-		setItemList(newList)
+	const handleItemDeletion = (deleteItemID) => {
+		const { items } = deleteItem(deleteItemID)
+		setItemList(items)
 	}
 
 	const toggleCrossOff = (crossedItemID) => {

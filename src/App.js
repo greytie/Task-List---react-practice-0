@@ -9,6 +9,7 @@ const App = () => {
 		{
 			name: 'Test Item',
 			objectID: 0,
+      crossedOff: false
 		},
 	])
 
@@ -24,6 +25,7 @@ const App = () => {
 			{
 				name: newItemInput,
 				objectID: itemList.length,
+        crossedOff: false
 			},
 		].map((item, index) => {
 			item.objectID = index
@@ -38,6 +40,16 @@ const App = () => {
 		const newList = itemList.filter((item) => item.objectID !== deletedItemID)
 		setItemList(newList)
 	}
+
+  const toggleCrossOff = (crossedItemID) => {
+    const newList = itemList.map((item) => {
+      if (item.objectID === crossedItemID) {
+        item.crossedOff = !(item.crossedOff);
+      }
+      return item;
+    })
+    setItemList(newList)
+  }
 
 	const [newItemInput, setNewItemInput] = React.useState('')
 
@@ -54,7 +66,11 @@ const App = () => {
 					handleNewItemInputChange={handleNewItemInputChange}
 					input={newItemInput}
 				></AddItemBox>
-				<List list={itemList} handleItemDeletion={handleItemDeletion}></List>
+				<List 
+          list={itemList} 
+          handleItemDeletion={handleItemDeletion}
+          toggleCrossOff={toggleCrossOff}
+        ></List>
 			</div>
 		</main>
 	)

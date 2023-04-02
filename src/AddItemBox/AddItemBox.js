@@ -8,6 +8,7 @@ const AddItemBox = ({ handleNewItem, handleNewItemInputChange, input }) => (
 					id="add-item"
 					value={input}
 					onChange={handleNewItemInputChange}
+                    placeholder="Enter a task"
 				/>
 				<button type="submit">add item</button>
 			</div>

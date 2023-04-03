@@ -19,10 +19,12 @@
 
 .item-cross {
 	color: #bfafb2;
+	text-transform: capitalize;
 }
 
 .item-delete {
 	color: #5c86a7;
+	text-transform: capitalize;
 }
 
 .no-items {

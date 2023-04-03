@@ -20,4 +20,5 @@
 
 .add-item-grid > button {
 	flex: 1;
+	text-transform: capitalize;
 }

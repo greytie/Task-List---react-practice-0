@@ -42,3 +42,15 @@
 	text-decoration: line-through;
 	color: #545454;
 }
+
+.checkmark-green {
+	color: #81f9a1;
+}
+
+.undo-blue {
+	color: #66d1f8;
+}
+
+.delete-red {
+	color: #f97594;
+}

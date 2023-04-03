@@ -13,7 +13,6 @@ const AddItemBox = ({ handleNewItem, handleNewItemInputChange, input }) => (
 				<span>
 					<button type="submit">add item</button>
 				</span>
-				
 			</div>
 		</form>
 	</div>

@@ -14,10 +14,10 @@ export const downloadTextAsFile = (text, fileName) => {
 }
 
 /**
- * 
+ *
  * Got from: https://stackoverflow.com/questions/31746837/reading-uploaded-text-file-contents-in-html
- * @param {*} file 
- * @returns 
+ * @param {*} file
+ * @returns
  */
 export const getTextFromFileAsync = async (file) => {
 	try {

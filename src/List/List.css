@@ -1,6 +1,6 @@
 .item {
 	min-width: 50vw;
-	color: white;
+	color: #e8e8e8;
 	font-size: calc(10px + 2vmin);
 	display: flex;
 	align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .item-cross {
-	color: #bfafb2;
+	color: #545454;
 	text-transform: capitalize;
 }
 
@@ -40,5 +40,5 @@
 
 .crossed-off {
 	text-decoration: line-through;
-	color: #bfafb2;
+	color: #545454;
 }

@@ -1,3 +1,5 @@
+import { IonIcon } from '@ionic/react'
+import { closeOutline, arrowUndoOutline, checkmarkOutline } from 'ionicons/icons';
 import './List.css'
 
 const List = ({ list, handleItemDeletion, toggleCrossOff }) => {
@@ -13,13 +15,13 @@ const List = ({ list, handleItemDeletion, toggleCrossOff }) => {
 							className="item-action item-cross"
 							onClick={() => toggleCrossOff(objectID)}
 						>
-							{crossedOff ? 'undo' : 'cross off'}
+							<IonIcon icon={crossedOff ? arrowUndoOutline : checkmarkOutline} />
 						</span>
 						<span
 							className="item-action item-delete"
 							onClick={() => handleItemDeletion(objectID)}
 						>
-							delete
+							<IonIcon icon={closeOutline} />
 						</span>
 					</div>
 				))

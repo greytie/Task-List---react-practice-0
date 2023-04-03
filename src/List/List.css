@@ -17,6 +17,9 @@
 	font-size: calc(10px + 1vmin);
 	flex: 1;
 	text-align: end;
+}
+
+.item-action > ion-icon {
 	cursor: pointer;
 }
 

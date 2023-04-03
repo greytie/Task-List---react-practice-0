@@ -5,8 +5,8 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-const rootElement = document.getElementById('root');
-rootElement.setAttribute("data-theme", "dark")
+const rootElement = document.getElementById('root')
+rootElement.setAttribute('data-theme', 'dark')
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

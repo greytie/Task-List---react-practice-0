@@ -4,6 +4,7 @@ import List from './List/List'
 import TitleBox from './TitleBox/TitleBox'
 import AddItemBox from './AddItemBox/AddItemBox'
 import { readItemStorage, updateItemStorage } from './lib/storage'
+import { downloadTextAsFile } from './lib/file-io'
 
 const App = () => {
 	const [itemStore, setItemStore] = React.useState(readItemStorage())
@@ -66,8 +67,22 @@ const App = () => {
 		updateItemStorage(itemStore)
 	}, [itemStore])
 
+	const onExport = (event) => {
+		event.preventDefault()
+		downloadTextAsFile(JSON.stringify(itemStore), 'task_export.txt')
+	}
+
 	return (
 		<main className="container">
+			<nav>
+				<ul>
+					<li>
+						<a href="#" className="contrast" onClick={onExport}>
+							Export
+						</a>
+					</li>
+				</ul>
+			</nav>
 			<div className="App">
 				<TitleBox></TitleBox>
 				<AddItemBox

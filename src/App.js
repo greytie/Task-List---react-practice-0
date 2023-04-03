@@ -4,7 +4,7 @@ import List from './List/List'
 import TitleBox from './TitleBox/TitleBox'
 import AddItemBox from './AddItemBox/AddItemBox'
 import { readItemStorage, updateItemStorage } from './lib/storage'
-import { downloadTextAsFile } from './lib/file-io'
+import { downloadTextAsFile, getTextFromFileAsync } from './lib/file-io'
 
 const App = () => {
 	const [itemStore, setItemStore] = React.useState(readItemStorage())
@@ -72,6 +72,16 @@ const App = () => {
 		downloadTextAsFile(JSON.stringify(itemStore), 'task_export.txt')
 	}
 
+	const onImport = async (event) => {
+		const input = event.target
+		if ('files' in input && input.files.length > 0) {
+			const importedJson = await getTextFromFileAsync(input.files[0])
+
+			// TODO: Should validate that imported string
+			setItemStore(JSON.parse(importedJson))
+		}
+	}
+
 	return (
 		<main className="container">
 			<nav>
@@ -80,6 +90,18 @@ const App = () => {
 						<a href="#" className="contrast" onClick={onExport}>
 							Export
 						</a>
+					</li>
+					<li>
+						<label htmlFor="import-file" style={{ cursor: 'pointer' }}>
+							Import
+							<input
+								id="import-file"
+								type="file"
+								className="contrast"
+								style={{ display: 'none' }}
+								onChange={onImport}
+							/>
+						</label>
 					</li>
 				</ul>
 			</nav>

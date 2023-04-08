@@ -3,6 +3,7 @@
 Simple Task managing application, built with:
 - React (through [Create React App](https://create-react-app.dev/))
 - [Pico.CSS](https://picocss.com/)
+- [ionicons](https://ionic.io/ionicons) for icons
 
 Offers only basic functionality, such as adding items, marking as complete, and deleting items from the list. Items are persisted through the use of browser local storage. However, users can export/import their list using the Import/Export buttons on the top of the window.
 
